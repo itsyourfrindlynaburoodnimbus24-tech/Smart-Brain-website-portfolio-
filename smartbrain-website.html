@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Brain Coaching Classes | Making Ordinary-Extra Ordinary</title>
+<meta name="description" content="Smart Brain Coaching Classes – Premier coaching for NEET, JEE, MHT-CET, CA, CS & Board Exams. 500+ admissions to premier colleges.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple-deep: #0D0518;
+    --purple-mid: #1A0A35;
+    --purple-light: #2D1B69;
+    --emerald: #0A5C3F;
+    --emerald-bright: #0D9B6A;
+    --emerald-glow: #10E085;
+    --gold: #C9A844;
+    --gold-light: #E8C96A;
+    --gold-shine: #FFE88A;
+    --teal: #0B7070;
+    --text-primary: #F5F0FF;
+    --text-secondary: #C4B8E8;
+    --text-muted: #8878B8;
+    --glass: rgba(255,255,255,0.05);
+    --glass-border: rgba(201,168,68,0.2);
+    --card-bg: rgba(26,10,53,0.8);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--purple-deep);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* ─── CUSTOM CURSOR ─── */
+  .cursor {
+    width: 12px; height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s ease;
+    mix-blend-mode: screen;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid rgba(201,168,68,0.5);
+    border-radius: 50%;
+    position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: all 0.15s ease;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--purple-deep); }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold), var(--emerald-bright)); border-radius: 2px; }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 16px 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(13,5,24,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,168,68,0.12);
+    transition: all 0.4s ease;
+  }
+  nav.scrolled {
+    padding: 10px 5%;
+    background: rgba(13,5,24,0.97);
+    border-bottom-color: rgba(201,168,68,0.25);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--emerald) 100%);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 0 20px rgba(201,168,68,0.3);
+  }
+  .nav-logo-text { line-height: 1.1; }
+  .nav-logo-text .brand { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold-light); font-weight: 600; letter-spacing: 1px; }
+  .nav-logo-text .sub { font-size: 9px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.5px;
+    color: var(--text-secondary); text-decoration: none;
+    position: relative; padding-bottom: 4px;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px;
+    background: var(--gold); transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold) 0%, #A07830 100%);
+    color: var(--purple-deep) !important;
+    padding: 9px 22px !important;
+    border-radius: 6px;
+    font-weight: 700 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 20px rgba(201,168,68,0.3);
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,68,0.5) !important; color: #000 !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); border-radius: 2px; transition: all 0.3s; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 120px 5% 80px;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(13,90,63,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(45,27,105,0.6) 0%, transparent 55%),
+      radial-gradient(ellipse at 60% 80%, rgba(11,112,112,0.2) 0%, transparent 50%),
+      linear-gradient(135deg, #0D0518 0%, #1A0A35 50%, #0A1A12 100%);
+  }
+
+  canvas#neural { position: absolute; inset: 0; opacity: 0.4; }
+
+  .hero-grid-lines {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,68,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,68,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 700px;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,68,0.1);
+    border: 1px solid rgba(201,168,68,0.3);
+    border-radius: 50px;
+    padding: 7px 18px;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 28px;
+    animation: fadeSlideUp 0.8s ease forwards;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--emerald-glow);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.5)} }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.0;
+    font-weight: 700;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeSlideUp 0.9s 0.2s ease forwards;
+  }
+  .hero-title .line1 { display: block; color: var(--text-primary); }
+  .hero-title .line2 {
+    display: block;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--emerald-bright) 50%, var(--gold-light) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: fadeSlideUp 0.9s 0.2s ease forwards, shimmerText 4s linear 1.5s infinite;
+  }
+  @keyframes shimmerText { 0%{background-position:0%} 100%{background-position:200%} }
+
+  .hero-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(11px, 1.5vw, 14px);
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeSlideUp 0.9s 0.35s ease forwards;
+  }
+
+  .hero-description {
+    font-size: clamp(15px, 1.8vw, 17px);
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeSlideUp 0.9s 0.5s ease forwards;
+  }
+
+  .hero-actions {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    opacity: 0;
+    animation: fadeSlideUp 0.9s 0.65s ease forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--gold) 0%, #A07830 100%);
+    color: var(--purple-deep);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 25px rgba(201,168,68,0.35);
+    position: relative; overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: left 0.5s ease;
+  }
+  .btn-primary:hover::before { left: 100%; }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(201,168,68,0.5); }
+
+  .btn-whatsapp {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(37,211,102,0.12);
+    border: 1px solid rgba(37,211,102,0.4);
+    color: #25D366;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 14px; font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-whatsapp:hover { background: rgba(37,211,102,0.2); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(37,211,102,0.2); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(201,168,68,0.4);
+    color: var(--gold-light);
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 14px; font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover { background: rgba(201,168,68,0.1); border-color: var(--gold); transform: translateY(-3px); }
+
+  .hero-visual {
+    position: absolute; right: 5%; top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    opacity: 0;
+    animation: fadeSlideLeft 1s 0.8s ease forwards;
+  }
+
+  .hero-shield {
+    width: clamp(200px, 28vw, 380px);
+    position: relative;
+  }
+
+  .shield-glow {
+    position: absolute; inset: -30%;
+    background: radial-gradient(ellipse, rgba(201,168,68,0.15) 0%, transparent 70%);
+    animation: breathe 3s ease-in-out infinite;
+  }
+  @keyframes breathe { 0%,100%{opacity:0.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+
+  .shield-svg {
+    width: 100%; height: auto;
+    filter: drop-shadow(0 0 30px rgba(201,168,68,0.3)) drop-shadow(0 0 60px rgba(13,155,106,0.2));
+    animation: floatShield 4s ease-in-out infinite;
+  }
+  @keyframes floatShield { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,68,0.1);
+    border: 1px solid rgba(201,168,68,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 50px;
+    opacity: 0;
+    animation: fadeSlideUp 0.9s 0.9s ease forwards;
+  }
+  .stat-item {
+    padding: 20px 16px; text-align: center;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    transition: background 0.3s;
+  }
+  .stat-item:hover { background: rgba(201,168,68,0.08); }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.5px; }
+
+  @keyframes fadeSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeSlideLeft { from{opacity:0;transform:translate(40px,-50%)} to{opacity:1;transform:translate(0,-50%)} }
+
+  /* ─── SECTION COMMONS ─── */
+  section { padding: 100px 5%; }
+
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-tag {
+    display: inline-block;
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-title .gold { color: var(--gold-light); }
+  .section-divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto;
+  }
+
+  /* scroll reveal base */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity:0; transform:translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-left.visible { opacity:1; transform:translateX(0); }
+  .reveal-right { opacity:0; transform:translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-right.visible { opacity:1; transform:translateX(0); }
+
+  /* stagger delays */
+  .delay-1 { transition-delay: 0.1s !important; }
+  .delay-2 { transition-delay: 0.2s !important; }
+  .delay-3 { transition-delay: 0.3s !important; }
+  .delay-4 { transition-delay: 0.4s !important; }
+  .delay-5 { transition-delay: 0.5s !important; }
+  .delay-6 { transition-delay: 0.6s !important; }
+
+  /* ─── ABOUT / WHY US ─── */
+  #about {
+    background: linear-gradient(180deg, var(--purple-deep) 0%, rgba(10,28,20,0.95) 100%);
+    position: relative; overflow: hidden;
+  }
+  #about::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+  .about-visual-wrap { position: relative; }
+  .about-card-main {
+    background: linear-gradient(135deg, rgba(201,168,68,0.08) 0%, rgba(13,155,106,0.08) 100%);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    position: relative; overflow: hidden;
+  }
+  .about-card-main::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--emerald-bright));
+  }
+
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-style: italic;
+    color: var(--gold-light);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .features-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .feature-item {
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .feature-icon {
+    width: 32px; height: 32px; flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(201,168,68,0.2), rgba(13,155,106,0.2));
+    border: 1px solid rgba(201,168,68,0.3);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .feature-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .feature-text strong { color: var(--text-primary); display: block; font-size: 13px; margin-bottom: 2px; }
+
+  .about-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .about-text p { font-size: 15px; color: var(--text-secondary); line-height: 1.9; margin-bottom: 24px; font-weight: 300; }
+
+  .metrics-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+  .metric-box {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 18px 12px; text-align: center;
+  }
+  .metric-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--gold-light);
+  }
+  .metric-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.5px; margin-top: 4px; }
+
+  /* ─── COURSES ─── */
+  #courses {
+    background: var(--purple-deep);
+    position: relative;
+  }
+
+  .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+  .course-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 36px 28px;
+    position: relative; overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: default;
+  }
+  .course-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,68,0.05) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  .course-card:hover::before { opacity: 1; }
+  .course-card:hover {
+    border-color: rgba(201,168,68,0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(201,168,68,0.1);
+  }
+  .course-card-accent {
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .course-card:nth-child(1) .course-card-accent { background: linear-gradient(90deg, #6366F1, var(--emerald-bright)); }
+  .course-card:nth-child(2) .course-card-accent { background: linear-gradient(90deg, var(--gold), #E8C96A); }
+  .course-card:nth-child(3) .course-card-accent { background: linear-gradient(90deg, #EF4444, #F59E0B); }
+  .course-card:nth-child(4) .course-card-accent { background: linear-gradient(90deg, var(--teal), var(--emerald-bright)); }
+
+  .course-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  .course-card:nth-child(1) .course-icon { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); }
+  .course-card:nth-child(2) .course-icon { background: rgba(201,168,68,0.15); border: 1px solid rgba(201,168,68,0.3); }
+  .course-card:nth-child(3) .course-icon { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); }
+  .course-card:nth-child(4) .course-icon { background: rgba(11,112,112,0.15); border: 1px solid rgba(11,112,112,0.3); }
+
+  .course-title {
+    font-family: 'Cinzel', serif;
+    font-size: 15px; font-weight: 600;
+    color: var(--text-primary); margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .course-subtitle { font-size: 12px; color: var(--emerald-bright); margin-bottom: 14px; letter-spacing: 0.5px; }
+  .course-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; font-weight: 300; }
+  .course-subjects { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .subject-tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+    padding: 5px 12px; border-radius: 50px;
+    background: rgba(201,168,68,0.1);
+    border: 1px solid rgba(201,168,68,0.25);
+    color: var(--gold-light);
+  }
+  .course-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--gold); font-weight: 600;
+    text-decoration: none; letter-spacing: 0.5px;
+    transition: gap 0.3s;
+  }
+  .course-link:hover { gap: 10px; }
+
+  /* ─── FACULTY ─── */
+  #faculty {
+    background: linear-gradient(180deg, rgba(10,28,20,0.9) 0%, var(--purple-deep) 100%);
+    position: relative;
+  }
+  #faculty::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--emerald-bright), transparent);
+  }
+
+  .faculty-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+
+  .faculty-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 32px 24px; text-align: center;
+    transition: all 0.4s ease;
+    position: relative; overflow: hidden;
+  }
+  .faculty-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--emerald-bright));
+    transform: scaleX(0); transition: transform 0.4s ease;
+  }
+  .faculty-card:hover { transform: translateY(-8px); border-color: rgba(201,168,68,0.35); }
+  .faculty-card:hover::after { transform: scaleX(1); }
+
+  .faculty-avatar {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple-light), var(--emerald));
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    border: 2px solid rgba(201,168,68,0.3);
+    box-shadow: 0 0 20px rgba(201,168,68,0.15);
+  }
+  .faculty-name {
+    font-family: 'Cinzel', serif;
+    font-size: 15px; font-weight: 600;
+    color: var(--text-primary); margin-bottom: 6px;
+  }
+  .faculty-subject { font-size: 12px; color: var(--emerald-bright); margin-bottom: 10px; font-weight: 500; letter-spacing: 0.5px; }
+  .faculty-exp { font-size: 12px; color: var(--text-muted); }
+  .faculty-exp strong { color: var(--gold); }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials {
+    background: var(--purple-deep);
+    overflow: hidden;
+  }
+
+  .testimonials-track-wrap { overflow: hidden; position: relative; }
+  .testimonials-track-wrap::before,
+  .testimonials-track-wrap::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2;
+  }
+  .testimonials-track-wrap::before { left: 0; background: linear-gradient(90deg, var(--purple-deep), transparent); }
+  .testimonials-track-wrap::after { right: 0; background: linear-gradient(-90deg, var(--purple-deep), transparent); }
+
+  .testimonials-track {
+    display: flex; gap: 24px;
+    animation: scrollTrack 28s linear infinite;
+    width: max-content;
+  }
+  .testimonials-track:hover { animation-play-state: paused; }
+  @keyframes scrollTrack { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+  .testi-card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 28px 26px;
+    width: 320px; flex-shrink: 0;
+    transition: border-color 0.3s;
+  }
+  .testi-card:hover { border-color: rgba(201,168,68,0.4); }
+
+  .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px; line-height: 1.7;
+    color: var(--text-secondary); font-style: italic;
+    margin-bottom: 20px;
+  }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--emerald));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: var(--purple-deep);
+    flex-shrink: 0;
+  }
+  .testi-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .testi-detail { font-size: 11px; color: var(--text-muted); }
+
+  /* ─── RESULTS BANNER ─── */
+  #results {
+    background: linear-gradient(135deg, rgba(13,155,106,0.08) 0%, rgba(201,168,68,0.05) 100%);
+    border-top: 1px solid rgba(201,168,68,0.1);
+    border-bottom: 1px solid rgba(201,168,68,0.1);
+    padding: 70px 5%;
+    text-align: center;
+  }
+
+  .results-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 32px; max-width: 900px; margin: 0 auto; }
+  .result-item {}
+  .result-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-light), var(--emerald-bright));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  .result-label { font-size: 13px; color: var(--text-secondary); margin-top: 8px; }
+  .result-sub { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: linear-gradient(180deg, var(--purple-deep) 0%, rgba(5,3,15,1) 100%);
+    position: relative;
+  }
+  #contact::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--emerald-bright), transparent);
+  }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+
+  .contact-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700; margin-bottom: 16px;
+    color: var(--text-primary);
+  }
+  .contact-info p { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 36px; font-weight: 300; }
+
+  .contact-channels { display: flex; flex-direction: column; gap: 16px; }
+  .channel-btn {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid;
+  }
+  .channel-btn.whatsapp {
+    background: rgba(37,211,102,0.08);
+    border-color: rgba(37,211,102,0.3);
+    color: #25D366;
+  }
+  .channel-btn.whatsapp:hover { background: rgba(37,211,102,0.15); transform: translateX(6px); box-shadow: 0 4px 20px rgba(37,211,102,0.15); }
+
+  .channel-btn.call {
+    background: rgba(201,168,68,0.08);
+    border-color: rgba(201,168,68,0.3);
+    color: var(--gold-light);
+  }
+  .channel-btn.call:hover { background: rgba(201,168,68,0.15); transform: translateX(6px); }
+
+  .channel-btn.maps {
+    background: rgba(99,102,241,0.08);
+    border-color: rgba(99,102,241,0.3);
+    color: #818CF8;
+  }
+  .channel-btn.maps:hover { background: rgba(99,102,241,0.15); transform: translateX(6px); }
+
+  .channel-icon { font-size: 22px; flex-shrink: 0; }
+  .channel-label { font-size: 12px; opacity: 0.7; }
+  .channel-value { font-size: 14px; font-weight: 600; }
+
+  /* FORM */
+  .contact-form {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px 36px;
+    backdrop-filter: blur(10px);
+    position: relative; overflow: hidden;
+  }
+  .contact-form::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--emerald-bright), var(--gold));
+  }
+
+  .form-title {
+    font-family: 'Cinzel', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--text-primary); margin-bottom: 8px;
+  }
+  .form-subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 7px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,68,0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    outline: none;
+    transition: all 0.3s ease;
+    -webkit-appearance: none;
+  }
+  .form-group select option { background: var(--purple-mid); color: var(--text-primary); }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    background: rgba(201,168,68,0.05);
+    box-shadow: 0 0 0 3px rgba(201,168,68,0.1);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--text-muted); }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--gold) 0%, #A07830 100%);
+    color: var(--purple-deep);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(201,168,68,0.4); }
+  .form-submit:active { transform: translateY(0); }
+
+  .form-success {
+    display: none;
+    text-align: center; padding: 30px;
+  }
+  .form-success.show { display: block; }
+  .form-success .tick { font-size: 48px; margin-bottom: 12px; }
+  .form-success p { color: var(--emerald-bright); font-size: 15px; }
+
+  /* ─── FLOATING WHATSAPP ─── */
+  .floating-wa {
+    position: fixed; bottom: 30px; right: 28px;
+    width: 58px; height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    z-index: 500; text-decoration: none;
+    transition: all 0.3s ease;
+    animation: waBounce 2s ease-in-out 2s infinite;
+  }
+  .floating-wa:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.6); animation: none; }
+  @keyframes waBounce { 0%,100%{transform:scale(1)} 50%{transform:scale(1.07)} }
+
+  .floating-wa-label {
+    position: absolute; right: 70px; top: 50%;
+    transform: translateY(-50%);
+    background: var(--purple-deep);
+    border: 1px solid rgba(37,211,102,0.4);
+    color: #25D366;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px; font-weight: 600;
+    white-space: nowrap;
+    opacity: 0; transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .floating-wa:hover .floating-wa-label { opacity: 1; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #050210;
+    border-top: 1px solid rgba(201,168,68,0.15);
+    padding: 50px 5% 28px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .footer-brand {}
+  .footer-brand .brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 20px; color: var(--gold-light); font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .footer-brand .brand-sub { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+  .footer-brand p { font-size: 13px; color: var(--text-muted); line-height: 1.8; max-width: 300px; }
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 14px;
+    margin-top: 16px;
+  }
+  .footer-col h4 { font-size: 12px; font-weight: 700; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 11px; }
+  .footer-col ul li a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+    gap: 12px;
+  }
+  .footer-bottom p { font-size: 12px; color: var(--text-muted); }
+  .footer-bottom .gold-text { color: var(--gold); }
+
+  /* ─── MOBILE NAV ─── */
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(13,5,24,0.98);
+    backdrop-filter: blur(30px);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Cinzel', serif; font-size: 22px; color: var(--text-primary); text-decoration: none; transition: color 0.3s; }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu-close { position: absolute; top: 24px; right: 28px; font-size: 28px; color: var(--gold); cursor: pointer; background: none; border: none; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    body { cursor: auto; }
+    .cursor, .cursor-ring { display: none; }
+    .hero-visual { display: none; }
+    .hero-content { max-width: 100%; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .hero-stats { grid-template-columns: 1fr 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .features-list { grid-template-columns: 1fr; }
+    .metrics-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ── NAVBAR ── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-icon">🧠</div>
+    <div class="nav-logo-text">
+      <div class="brand">Smart Brain</div>
+      <div class="sub">Coaching Classes</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#faculty">Faculty</a>
+    <a href="#testimonials">Results</a>
+    <a href="#contact" class="nav-cta">Enroll Now →</a>
+  </div>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose">✕</button>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#courses" onclick="closeMobile()">Courses</a>
+  <a href="#faculty" onclick="closeMobile()">Faculty</a>
+  <a href="#testimonials" onclick="closeMobile()">Results</a>
+  <a href="#contact" class="btn-primary" onclick="closeMobile()">Enroll Now →</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <canvas id="neural"></canvas>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">✦ Premier Coaching Institute</div>
+    <div class="hero-tagline">Making Ordinary — Extra Ordinary</div>
+    <h1 class="hero-title">
+      <span class="line1">Shape Your</span>
+      <span class="line2">Future Here</span>
+    </h1>
+    <p class="hero-description">
+      Expert-guided coaching for NEET, JEE, MHT-CET, CA, CS & Board Exams. 
+      We don't just teach — we transform ordinary students into extraordinary achievers.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">🎯 Enroll Now</a>
+      <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20want%20to%20know%20about%20Smart%20Brain%20Coaching%20Classes" class="btn-whatsapp" target="_blank">💬 WhatsApp Us</a>
+      <a href="#courses" class="btn-outline">Explore Courses →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num counter" data-target="500">0</div>
+        <div class="stat-label">Admissions+</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num counter" data-target="98">0</div>
+        <div class="stat-label">% Board Results</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num counter" data-target="10">0</div>
+        <div class="stat-label">Years Expert Fac.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Shield -->
+  <div class="hero-visual">
+    <div class="hero-shield">
+      <div class="shield-glow"></div>
+      <svg class="shield-svg" viewBox="0 0 300 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#C9A844;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#E8C96A;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#8B6914;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="brainGradL" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1B4F8A"/>
+            <stop offset="100%" style="stop-color:#0D7A5A"/>
+          </linearGradient>
+          <linearGradient id="brainGradR" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#C9A844"/>
+            <stop offset="100%" style="stop-color:#E8762A"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Shield body -->
+        <path d="M150 20 L270 70 L270 190 Q270 290 150 340 Q30 290 30 190 L30 70 Z" fill="rgba(26,10,53,0.9)" stroke="url(#shieldGrad)" stroke-width="3"/>
+        <!-- Shield highlight -->
+        <path d="M150 30 L260 76 L260 190 Q260 284 150 330" fill="none" stroke="rgba(255,235,120,0.3)" stroke-width="1"/>
+        <!-- Book crown top -->
+        <path d="M110 28 Q150 10 190 28 L195 40 Q150 22 105 40 Z" fill="url(#shieldGrad)"/>
+        <ellipse cx="150" cy="27" rx="8" ry="12" fill="url(#shieldGrad)" opacity="0.9"/>
+        <!-- Laurel leaves hint -->
+        <path d="M105 35 Q90 25 80 30 Q88 40 100 38Z" fill="url(#shieldGrad)" opacity="0.8"/>
+        <path d="M195 35 Q210 25 220 30 Q212 40 200 38Z" fill="url(#shieldGrad)" opacity="0.8"/>
+        <!-- Brain left (science) -->
+        <g filter="url(#glow)">
+          <ellipse cx="130" cy="170" rx="45" ry="55" fill="url(#brainGradL)" opacity="0.85"/>
+          <text x="115" y="155" font-size="18" fill="#fff" opacity="0.9">⚛</text>
+          <text x="105" y="180" font-size="14" fill="#0D9B6A">🔬</text>
+          <text x="130" y="205" font-size="12" fill="#1B8AFF">🧬</text>
+        </g>
+        <!-- Brain right (commerce) -->
+        <g filter="url(#glow)">
+          <ellipse cx="170" cy="170" rx="45" ry="55" fill="url(#brainGradR)" opacity="0.85"/>
+          <text x="158" y="155" font-size="16" fill="#FFE88A" opacity="0.9">📈</text>
+          <text x="165" y="180" font-size="14" fill="#C9A844">⚙</text>
+          <text x="152" y="205" font-size="12" fill="#FFB347">₹</text>
+        </g>
+        <!-- Center divider -->
+        <line x1="150" y1="115" x2="150" y2="225" stroke="url(#shieldGrad)" stroke-width="1.5" opacity="0.6"/>
+        <!-- Stars sparkle -->
+        <text x="65" y="130" font-size="10" fill="#C9A844" opacity="0.8">✦</text>
+        <text x="215" y="140" font-size="10" fill="#0D9B6A" opacity="0.8">✦</text>
+        <text x="80" y="220" font-size="8" fill="#C9A844" opacity="0.6">✦</text>
+        <!-- Bottom shield point accent -->
+        <path d="M140 310 L150 340 L160 310" fill="url(#shieldGrad)" opacity="0.7"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT / WHY US ── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual-wrap reveal-left">
+      <div class="about-card-main">
+        <p class="about-quote">"The Nexus of Cognitive Evolution — where science meets commerce, and potential meets purpose."</p>
+        <ul class="features-list">
+          <li class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <div class="feature-text"><strong>Focused Preparation</strong>Std XII & entrance-specific curriculum</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">📚</div>
+            <div class="feature-text"><strong>Study Materials</strong>Comprehensive, AI-enhanced notes</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">🧪</div>
+            <div class="feature-text"><strong>Mock Tests</strong>Regular assessments & doubt clearing</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">🏆</div>
+            <div class="feature-text"><strong>Proven Results</strong>500+ admissions to premier colleges</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">🧠</div>
+            <div class="feature-text"><strong>Neural Growth</strong>Score improvement methodology</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">👨‍🏫</div>
+            <div class="feature-text"><strong>Expert Faculty</strong>Subject specialists, 10+ yrs exp.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="about-text reveal-right">
+      <p class="section-tag">Who We Are</p>
+      <h2>More Than a <span style="color:var(--gold-light)">Coaching Class</span> — It's a <span style="color:var(--emerald-bright)">Transformation</span></h2>
+      <p>Smart Brain Coaching Classes is built on a single belief: every ordinary student carries extraordinary potential. Our structured approach, world-class faculty, and unique neuro-cognitive methodology unlock that potential systematically.</p>
+      <p>From board exams to competitive entrances, we've helped 500+ students earn seats in India's premier colleges. Our curriculum bridges science and commerce — giving students a holistic academic advantage.</p>
+      <div class="metrics-row">
+        <div class="metric-box">
+          <div class="metric-num">500+</div>
+          <div class="metric-label">Premier Admissions</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">98%</div>
+          <div class="metric-label">Board Results</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-num">∞</div>
+          <div class="metric-label">Potential Unlocked</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESULTS BANNER ── -->
+<section id="results">
+  <div class="section-header">
+    <p class="section-tag">Our Results Speak Volumes</p>
+    <h2 class="section-title reveal">Numbers That <span class="gold">Define Excellence</span></h2>
+  </div>
+  <div class="results-grid">
+    <div class="result-item reveal delay-1">
+      <div class="result-num counter" data-target="500">0</div>
+      <div class="result-label">Admissions to Premier Colleges</div>
+      <div class="result-sub">From SBCC students</div>
+    </div>
+    <div class="result-item reveal delay-2">
+      <div class="result-num counter" data-target="98">0</div>
+      <div class="result-label">% Board Exam Score Rate</div>
+      <div class="result-sub">Consistent year-on-year</div>
+    </div>
+    <div class="result-item reveal delay-3">
+      <div class="result-num counter" data-target="40">0</div>
+      <div class="result-label">% Average Score Increase</div>
+      <div class="result-sub">Neural growth methodology</div>
+    </div>
+    <div class="result-item reveal delay-4">
+      <div class="result-num counter" data-target="1000">0</div>
+      <div class="result-label">+ Happy Students</div>
+      <div class="result-sub">& counting every year</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COURSES ── -->
+<section id="courses">
+  <div class="section-header">
+    <p class="section-tag">What We Offer</p>
+    <h2 class="section-title reveal">Courses Built for <span class="gold">Champions</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="courses-grid">
+    <div class="course-card reveal delay-1">
+      <div class="course-card-accent"></div>
+      <div class="course-icon">⚗️</div>
+      <div class="course-title">Medical & Engineering</div>
+      <div class="course-subtitle">Entrance Exam Mastery</div>
+      <p class="course-desc">Rigorous preparation for NEET, JEE & MHT-CET with concept clarity, problem-solving speed, and exam strategy that puts students ahead of the competition.</p>
+      <div class="course-subjects">
+        <span class="subject-tag">NEET</span>
+        <span class="subject-tag">JEE</span>
+        <span class="subject-tag">MHT-CET</span>
+      </div>
+      <a href="#contact" class="course-link">Enroll Now →</a>
+    </div>
+    <div class="course-card reveal delay-2">
+      <div class="course-card-accent"></div>
+      <div class="course-icon">⚖️</div>
+      <div class="course-title">Commerce & Management</div>
+      <div class="course-subtitle">Professional Certifications</div>
+      <p class="course-desc">Comprehensive coaching for CA & CS foundation and intermediate — with expert guidance, mock assessments, and industry-relevant problem sets.</p>
+      <div class="course-subjects">
+        <span class="subject-tag">CA Foundation</span>
+        <span class="subject-tag">CS</span>
+      </div>
+      <a href="#contact" class="course-link">Enroll Now →</a>
+    </div>
+    <div class="course-card reveal delay-3">
+      <div class="course-card-accent"></div>
+      <div class="course-icon">📖</div>
+      <div class="course-title">Board Excellence</div>
+      <div class="course-subtitle">Std XI & XII Mastery</div>
+      <p class="course-desc">Focused board exam preparation with chapter-wise study plans, previous year paper practice, and doubt-clearing sessions for both science and commerce streams.</p>
+      <div class="course-subjects">
+        <span class="subject-tag">Science Std XII</span>
+        <span class="subject-tag">Commerce XII</span>
+        <span class="subject-tag">Std XI</span>
+      </div>
+      <a href="#contact" class="course-link">Enroll Now →</a>
+    </div>
+    <div class="course-card reveal delay-4">
+      <div class="course-card-accent"></div>
+      <div class="course-icon">🏛️</div>
+      <div class="course-title">Competitive Exams</div>
+      <div class="course-subtitle">Government & Banking</div>
+      <p class="course-desc">Strategic preparation for UPSC, SSC, banking & other government exams — covering aptitude, reasoning, GK, and current affairs with targeted practice.</p>
+      <div class="course-subjects">
+        <span class="subject-tag">UPSC</span>
+        <span class="subject-tag">SSC</span>
+        <span class="subject-tag">Banking</span>
+      </div>
+      <a href="#contact" class="course-link">Enroll Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FACULTY ── -->
+<section id="faculty">
+  <div class="section-header">
+    <p class="section-tag">Meet The Experts</p>
+    <h2 class="section-title reveal">Faculty Who <span class="gold">Inspire Greatness</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="faculty-grid">
+    <div class="faculty-card reveal delay-1">
+      <div class="faculty-avatar">👨‍🔬</div>
+      <div class="faculty-name">Dr. Rajesh Sharma</div>
+      <div class="faculty-subject">Physics & Chemistry</div>
+      <div class="faculty-exp"><strong>12 Years</strong> teaching NEET/JEE</div>
+    </div>
+    <div class="faculty-card reveal delay-2">
+      <div class="faculty-avatar">👩‍🏫</div>
+      <div class="faculty-name">Prof. Meena Patil</div>
+      <div class="faculty-subject">Mathematics</div>
+      <div class="faculty-exp"><strong>10 Years</strong> teaching JEE/MHT-CET</div>
+    </div>
+    <div class="faculty-card reveal delay-3">
+      <div class="faculty-avatar">👨‍💼</div>
+      <div class="faculty-name">CA Sanjay Desai</div>
+      <div class="faculty-subject">Accountancy & CA Prep</div>
+      <div class="faculty-exp"><strong>8 Years</strong> CA Foundation expert</div>
+    </div>
+    <div class="faculty-card reveal delay-4">
+      <div class="faculty-avatar">👩‍💻</div>
+      <div class="faculty-name">Ms. Priya Kulkarni</div>
+      <div class="faculty-subject">Biology & Botany</div>
+      <div class="faculty-exp"><strong>9 Years</strong> NEET specialist</div>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:32px;font-size:13px;color:var(--text-muted);font-style:italic;">* Faculty details to be updated with actual team members</p>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="section-header">
+    <p class="section-tag">Student Stories</p>
+    <h2 class="section-title reveal">What Our <span class="gold">Achievers Say</span></h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="testimonials-track-wrap">
+    <div class="testimonials-track" id="testiTrack">
+      <!-- Row 1 -->
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I gained stronger critical thinking skills and confidence here. The faculty really understands how students think."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div><div class="testi-name">Aryan Mehta</div><div class="testi-detail">NEET 2024 — Cleared ✓</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The transformation in my child's analytical ability has been profound. Best coaching decision we made."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div><div class="testi-name">Proud Parent</div><div class="testi-detail">JEE Student's Mother</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Mock tests here were harder than actual MHT-CET. When I sat for the real exam, it felt easy. Scored 98 percentile!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div><div class="testi-name">Sneha Joshi</div><div class="testi-detail">MHT-CET 2024 — 98 %ile</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The way they explain concepts — connecting science and real-world applications — I never forgot anything after that."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div><div class="testi-name">Rohan Deshmukh</div><div class="testi-detail">Board Exam — 94% in XII</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"CA Foundation cleared in first attempt. The commerce faculty here is exceptionally strong and supportive."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">N</div>
+          <div><div class="testi-name">Nidhi Kapoor</div><div class="testi-detail">CA Foundation — Cleared ✓</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Making Ordinary-Extra Ordinary is not just a tagline — it's real. I went from average to topper in 6 months."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">V</div>
+          <div><div class="testi-name">Vipul Rane</div><div class="testi-detail">Board Topper — 96.4%</div></div>
+        </div>
+      </div>
+      <!-- Duplicate for infinite scroll -->
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I gained stronger critical thinking skills and confidence here. The faculty really understands how students think."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div><div class="testi-name">Aryan Mehta</div><div class="testi-detail">NEET 2024 — Cleared ✓</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The transformation in my child's analytical ability has been profound. Best coaching decision we made."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div><div class="testi-name">Proud Parent</div><div class="testi-detail">JEE Student's Mother</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Mock tests here were harder than actual MHT-CET. When I sat for the real exam, it felt easy. Scored 98 percentile!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div><div class="testi-name">Sneha Joshi</div><div class="testi-detail">MHT-CET 2024 — 98 %ile</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The way they explain concepts — connecting science and real-world applications — I never forgot anything after that."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div><div class="testi-name">Rohan Deshmukh</div><div class="testi-detail">Board Exam — 94% in XII</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"CA Foundation cleared in first attempt. The commerce faculty here is exceptionally strong and supportive."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">N</div>
+          <div><div class="testi-name">Nidhi Kapoor</div><div class="testi-detail">CA Foundation — Cleared ✓</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Making Ordinary-Extra Ordinary is not just a tagline — it's real. I went from average to topper in 6 months."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">V</div>
+          <div><div class="testi-name">Vipul Rane</div><div class="testi-detail">Board Topper — 96.4%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-header">
+    <p class="section-tag">Get In Touch</p>
+    <h2 class="section-title reveal">Begin Your <span class="gold">Success Journey</span></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal-left">
+      <h3>Secure Your<br><span style="color:var(--gold)">Admission Today</span></h3>
+      <p>Spots are limited. Take the first step — fill the form, WhatsApp us, or call directly. Our team will guide you to the right course and batch that fits your goals.</p>
+      <div class="contact-channels">
+        <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20want%20to%20enroll%20at%20Smart%20Brain%20Coaching" class="channel-btn whatsapp" target="_blank">
+          <div class="channel-icon">💬</div>
+          <div>
+            <div class="channel-label">WhatsApp</div>
+            <div class="channel-value">Chat with us instantly</div>
+          </div>
+        </a>
+        <a href="tel:+91XXXXXXXXXX" class="channel-btn call">
+          <div class="channel-icon">📞</div>
+          <div>
+            <div class="channel-label">Call Directly</div>
+            <div class="channel-value">+91 XXXXX XXXXX</div>
+          </div>
+        </a>
+        <a href="https://maps.google.com" class="channel-btn maps" target="_blank">
+          <div class="channel-icon">📍</div>
+          <div>
+            <div class="channel-label">Location</div>
+            <div class="channel-value">Find us on Google Maps</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form reveal-right" id="contactForm">
+      <div class="form-title">Book a Free Demo Class</div>
+      <div class="form-subtitle">Fill in your details — we'll call you back within 24 hours.</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="fname" placeholder="e.g. Rahul Sharma" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" id="fphone" placeholder="+91 98765 XXXXX" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="femail" placeholder="yourname@email.com">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Course Interested In *</label>
+          <select id="fcourse">
+            <option value="">Select Course</option>
+            <option>NEET</option>
+            <option>JEE</option>
+            <option>MHT-CET</option>
+            <option>CA Foundation</option>
+            <option>CS</option>
+            <option>Board Exam (XII)</option>
+            <option>UPSC / Competitive</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Current Class / Std</label>
+          <select id="fclass">
+            <option value="">Select</option>
+            <option>Std X (Going to XI)</option>
+            <option>Std XI</option>
+            <option>Std XII</option>
+            <option>After XII / Graduate</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Message (Optional)</label>
+        <textarea id="fmsg" placeholder="Any specific questions or requirements..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">🎯 Book Free Demo Class</button>
+
+      <div class="form-success" id="formSuccess">
+        <div class="tick">✅</div>
+        <p><strong>Thank you!</strong> We've received your details.<br>Our team will contact you within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand-name">Smart Brain</div>
+      <div class="brand-sub">Coaching Classes</div>
+      <p>Empowering students to achieve extraordinary results through expert guidance, structured methodology, and unwavering support.</p>
+      <div class="footer-tagline">"Making Ordinary-Extra Ordinary"</div>
+    </div>
+    <div class="footer-col">
+      <h4>Courses</h4>
+      <ul>
+        <li><a href="#courses">NEET / JEE / MHT-CET</a></li>
+        <li><a href="#courses">CA Foundation & CS</a></li>
+        <li><a href="#courses">Board Exam (XI & XII)</a></li>
+        <li><a href="#courses">UPSC / SSC / Banking</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#faculty">Our Faculty</a></li>
+        <li><a href="#testimonials">Student Results</a></li>
+        <li><a href="#contact">Enroll Now</a></li>
+        <li><a href="https://wa.me/91XXXXXXXXXX" target="_blank">WhatsApp Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 <span class="gold-text">Smart Brain Coaching Classes</span>. All rights reserved.</p>
+    <p style="font-size:11px;color:var(--text-muted)">Designed with ✦ for excellence</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20want%20to%20know%20about%20Smart%20Brain%20Coaching" class="floating-wa" target="_blank" title="Chat on WhatsApp">
+  <span class="floating-wa-label">Chat with us!</span>
+  💬
+</a>
+
+<script>
+// ─── CURSOR ───
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+function animCursor(){
+  cursor.style.left = mx+'px'; cursor.style.top = my+'px';
+  rx += (mx-rx)*0.12; ry += (my-ry)*0.12;
+  ring.style.left = rx+'px'; ring.style.top = ry+'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a,button,.course-card,.faculty-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ ring.style.transform='translate(-50%,-50%) scale(1.6)'; ring.style.borderColor='rgba(201,168,68,0.8)'; });
+  el.addEventListener('mouseleave',()=>{ ring.style.transform='translate(-50%,-50%) scale(1)'; ring.style.borderColor='rgba(201,168,68,0.5)'; });
+});
+
+// ─── NAVBAR SCROLL ───
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY>50);
+});
+
+// ─── MOBILE MENU ───
+document.getElementById('hamburger').onclick = () => document.getElementById('mobileMenu').classList.add('open');
+document.getElementById('menuClose').onclick = closeMobile;
+function closeMobile(){ document.getElementById('mobileMenu').classList.remove('open'); }
+
+// ─── NEURAL CANVAS ───
+const canvas = document.getElementById('neural');
+const ctx = canvas.getContext('2d');
+let nodes = [];
+function resizeCanvas(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+for(let i=0;i<70;i++){
+  nodes.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    vx: (Math.random()-0.5)*0.5,
+    vy: (Math.random()-0.5)*0.5,
+    r: Math.random()*2+1
+  });
+}
+
+function drawNeural(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  // draw connections
+  for(let i=0;i<nodes.length;i++){
+    for(let j=i+1;j<nodes.length;j++){
+      const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<150){
+        const alpha = (1-dist/150)*0.4;
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(201,168,68,${alpha})`;
+        ctx.lineWidth=0.5;
+        ctx.moveTo(nodes[i].x,nodes[i].y);
+        ctx.lineTo(nodes[j].x,nodes[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+  // draw nodes
+  nodes.forEach(n=>{
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+    ctx.fillStyle='rgba(201,168,68,0.7)';
+    ctx.fill();
+    // move
+    n.x+=n.vx; n.y+=n.vy;
+    if(n.x<0||n.x>canvas.width) n.vx*=-1;
+    if(n.y<0||n.y>canvas.height) n.vy*=-1;
+  });
+  requestAnimationFrame(drawNeural);
+}
+drawNeural();
+
+// ─── SCROLL REVEAL ───
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const revealObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); }
+  });
+},{threshold:0.12});
+revealEls.forEach(el => revealObs.observe(el));
+
+// ─── COUNTER ANIMATION ───
+function animateCounter(el, target, duration=2000){
+  const start = Date.now();
+  const run = () => {
+    const elapsed = Date.now()-start;
+    const progress = Math.min(elapsed/duration,1);
+    const eased = 1 - Math.pow(1-progress,3);
+    el.textContent = Math.floor(eased*target);
+    if(progress<1) requestAnimationFrame(run);
+    else el.textContent = target;
+  };
+  run();
+}
+
+const counterObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting && !e.target.dataset.counted){
+      e.target.dataset.counted='1';
+      animateCounter(e.target, parseInt(e.target.dataset.target));
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+// ─── FORM SUBMIT ───
+function submitForm(){
+  const name = document.getElementById('fname').value;
+  const phone = document.getElementById('fphone').value;
+  const course = document.getElementById('fcourse').value;
+  if(!name||!phone||!course){
+    alert('Please fill in your Name, Phone and Course selection.');
+    return;
+  }
+  document.getElementById('contactForm').style.opacity='0';
+  document.getElementById('contactForm').style.transform='scale(0.98)';
+  setTimeout(()=>{
+    document.getElementById('contactForm').innerHTML = `
+      <div class="form-success show">
+        <div class="tick">✅</div>
+        <p style="color:var(--emerald-bright);font-size:16px;font-weight:600">Thank you, ${name}!</p>
+        <p style="margin-top:8px;color:var(--text-secondary)">We've received your enquiry for <strong style="color:var(--gold)">${course}</strong>.<br>Our team will call you at <strong>${phone}</strong> within 24 hours.</p>
+        <br>
+        <a href="https://wa.me/91XXXXXXXXXX?text=Hi%2C%20I%20just%20filled%20the%20demo%20form%20for%20${encodeURIComponent(course)}" class="btn-whatsapp" target="_blank" style="margin-top:12px">💬 Also WhatsApp Us</a>
+      </div>`;
+    document.getElementById('contactForm').style.opacity='1';
+    document.getElementById('contactForm').style.transform='scale(1)';
+    document.getElementById('contactForm').style.transition='all 0.5s ease';
+  },400);
+}
+
+// ─── SMOOTH ACTIVE NAV ───
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{
+    if(window.scrollY >= s.offsetTop-100) current=s.id;
+  });
+  navLinks.forEach(a=>{
+    a.style.color = a.getAttribute('href')==='#'+current ? 'var(--gold)' : '';
+  });
+});
+
+// ─── PARALLAX HERO ───
+window.addEventListener('scroll',()=>{
+  const y = window.scrollY;
+  const heroContent = document.querySelector('.hero-content');
+  if(heroContent && y < window.innerHeight){
+    heroContent.style.transform = `translateY(${y*0.25}px)`;
+    heroContent.style.opacity = 1 - y/600;
+  }
+});
+</script>
+</body>
+</html>
